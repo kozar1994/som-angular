@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Customer } from '../customer.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { create } from 'domain';
 import { CustomersService } from '../customers.service';
 
 @Component({
@@ -62,6 +61,7 @@ export class EditCustomersComponent implements OnInit, OnChanges {
     }
 
     this.customersService.editCustomer(editCustomer);
+    this.customerEdit = undefined;
   }
 
   onIChangedMyMind() {
