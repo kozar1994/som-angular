@@ -1,0 +1,32 @@
+<mat-card *ngIf="customerEdit !== undefined" class="main-com">
+  <mat-card-title>Редагувати користувача</mat-card-title>
+  <mat-card-subtitle>Усі поля обов'язкові для заповнення!</mat-card-subtitle>
+  <form [formGroup]="formEdit">
+    <mat-form-field class="form-input">
+      <input placeholder="Імя та Фамілія" matInput type="text" formControlName="name">
+      <!-- <mat-error *ngIf="title.invalid">Це поле обов'язкове для заповнення!!!</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <input placeholder="Адреса проживання" matInput type="text" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <input placeholder="Телефон" matInput type="text" formControlName="phone">
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onEditCustomer()">Змінити Користувача</button>
+      <button mat-raised-button color="primary" (click)="onIChangedMyMind()">Я передумав</button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
+
+<mat-card *ngIf="customerEdit === undefined" class="main-com">
+  <mat-card-title>Додати нового користувача</mat-card-title>
+  <mat-card-content>
+    <p>Ви можете легко змінити будь яку інформацію про користувача.</p>
+    <p>Для цього необхідно вибрати користувача якого хочете змінити і нажати на кнопку <strong>EDIT</strong></p>
+  </mat-card-content>
+</mat-card>

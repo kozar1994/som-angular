@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" >Sombra test</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" >Products</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/customers']" routerLinkActive="router-link-active" >Customers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

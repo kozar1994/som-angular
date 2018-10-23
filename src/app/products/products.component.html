@@ -1,0 +1,35 @@
+<mat-card class="main-com">
+  <mat-card-title>Додати новий продукт</mat-card-title>
+  <mat-card-subtitle>Усі поля обов'язкові для заповнення!</mat-card-subtitle>
+  <form (submit)='onSubmitForm(postForm)' #postForm="ngForm">
+    <mat-form-field class="form-input">
+      <input required ngModel placeholder="Назва" matInput type="text" name="title" #title="ngModel">
+      <mat-error *ngIf="title.invalid">Це поле обов'язкове для заповнення!!!</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <input required ngModel placeholder="Ціна" matInput type="number" name="price" #price="ngModel">
+      <mat-error *ngIf="title.invalid">Це поле обов'язкове для заповнення!!!</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Додати новий продукт</button>
+  </form>
+</mat-card>
+
+<mat-accordion class="main-com">
+  <mat-expansion-panel *ngFor="let product of products">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ product.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        Ціна: {{ product.price }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="onEditProduct(product.id)">EDIT</button>
+      <button mat-button color="warn" (click)="onDeleteProduct(product.id)">DELETE</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+
+</mat-accordion>

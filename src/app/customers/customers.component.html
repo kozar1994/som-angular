@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-6">
+    <mat-card class="main-com">
+      <mat-card-title>Додати нового користувача</mat-card-title>
+      <mat-card-subtitle>Усі поля обов'язкові для заповнення!</mat-card-subtitle>
+      <form [formGroup]="form">
+        <mat-form-field class="form-input">
+          <input placeholder="Імя та Фамілія" matInput type="text" formControlName="name">
+          <!-- <mat-error *ngIf="title.invalid">Це поле обов'язкове для заповнення!!!</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="form-input">
+          <input placeholder="Адреса проживання" matInput type="text" formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="form-input">
+          <input placeholder="Телефон" matInput type="number" formControlName="phone">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="onCreateCusSubmit()">Додати Користувача</button>
+      </form>
+    </mat-card>
+
+    <mat-accordion class="main-com">
+      <mat-expansion-panel *ngFor="let customer of customers">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ customer.name }}
+          </mat-panel-title>
+          <mat-panel-description>
+            Телефон: {{ customer.phone }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>
+          Адреса: {{ customer.address }}
+        </p>
+        <mat-action-row>
+          <button mat-button color="primary" (click)="onEditCustomer(customer)">EDIT</button>
+          <button mat-button color="warn" (click)="onDeleteCustomer(customer.id)">DELETE</button>
+        </mat-action-row>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+
+  <div class="col-6">
+    <app-edit-customers [customerEdit]="parentEditCustomer"></app-edit-customers>
+  </div>
+</div>
